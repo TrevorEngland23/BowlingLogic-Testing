@@ -12,12 +12,18 @@ public class Game {
         int roll = 0;
 
         for(int frame = 0; frame < 10; frame++){
-            if(isSpareFrame(roll)){
+            if(isStrikeFrame(roll)){
+                score += 10 + _rolls[roll +1] + _rolls[roll +2];
+                roll += 1;
+            }
+            else if(isSpareFrame(roll)){
                 score += 10 + _rolls[roll + 2];
+                roll += 2;
             } else {
                 score += _rolls[roll] + _rolls[roll + 1];
+                roll += 2;
             }
-            roll += 2;
+            
         }
 
         return score;
@@ -25,5 +31,9 @@ public class Game {
 
     private boolean isSpareFrame(int roll){
         return _rolls[roll] + _rolls[roll+1] == 10;
+    }
+
+    private boolean isStrikeFrame(int roll){
+        return _rolls[roll] == 10;
     }
 }

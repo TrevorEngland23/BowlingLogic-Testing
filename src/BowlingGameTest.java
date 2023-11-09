@@ -41,5 +41,15 @@ public class BowlingGameTest {
         assertEquals(16, game.score());
     }
 
+    @Test
+
+    public void strikeShouldGetTwoRollBonus(){
+        Game game = new Game();
+        game.roll(10); // strike
+        game.roll(2);
+        game.roll(7);
+        rollMany(game, 16, 0);
+        assertEquals(28, game.score());
+    }
 
  }
