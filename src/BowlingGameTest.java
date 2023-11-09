@@ -52,4 +52,12 @@ public class BowlingGameTest {
         assertEquals(28, game.score());
     }
 
+    @Test
+
+    public void perfectGameShouldGetPerfectScore(){
+        Game game = new Game();
+        rollMany(game, 20, 10);
+        assertEquals(300, game.score());
+    }
+
  }
